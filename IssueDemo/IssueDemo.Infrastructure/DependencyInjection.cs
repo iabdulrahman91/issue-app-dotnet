@@ -20,6 +20,7 @@ public static class dependencyInjection
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IIssueRepository, IssueRepository>();
         
         return services;
     }

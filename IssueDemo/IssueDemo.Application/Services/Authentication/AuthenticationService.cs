@@ -33,7 +33,7 @@ public class AuthenticationService : IAuthenticationService
             Email = Email,
             Password = Password
         };
-
+        
         _userRepository.Add(user);
 
         // Create JWT Token
