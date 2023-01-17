@@ -1,0 +1,29 @@
+
+@host=https://localhost:7250
+
+### https
+GET {{host}}/WeatherForecast
+
+### http
+GET http://localhost:5271/WeatherForecast
+
+### register
+POST {{host}}/register
+Content-Type: application/json
+
+{
+    "firstName": "Abdulrahman",
+    "lastName": "Alanazi",
+    "email": "a@a.com",
+    "password": "pswd"
+}
+
+
+### login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "a@a.com",
+    "password": "pswd"
+}
