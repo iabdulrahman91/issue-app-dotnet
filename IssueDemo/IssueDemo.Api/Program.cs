@@ -18,10 +18,14 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
+app.MapHealthChecks("/health");
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment()) // to run swagger in production //TODO: utlize env setting to disable in production
 {
     app.UseSwagger();
     app.UseSwaggerUI();
