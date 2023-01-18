@@ -13,6 +13,12 @@ public class IssueRepository : IIssueRepository
         issues.Add(issue);
     }
 
+    public void Delete(Guid id)
+    {
+        Issue? issue = issues.FirstOrDefault(x => x.Id.Value == id);
+        issues.Remove(issue);
+    }
+
     public Issue? GetById(Guid id)
     {
         Issue? issue = issues.FirstOrDefault(x => x.Id.Value == id);

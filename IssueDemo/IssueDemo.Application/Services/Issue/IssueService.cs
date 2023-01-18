@@ -29,7 +29,16 @@ public class IssueService : IIssueService
 
     public IssueResult Delete(Guid id)
     {
-        throw new NotImplementedException();
+        Issue? issue = _issueRepository.GetById(id);
+
+        if ( issue is null)
+        {
+            throw new NotFoundException();
+        }
+        
+        _issueRepository.Delete(id);
+
+        return new IssueResult(null);
     }
 
     public IssueResult Get(Guid id)
@@ -40,7 +49,7 @@ public class IssueService : IIssueService
         {
             throw new NotFoundException();
         }
-        
+
         return new IssueResult(issue);
 
     }

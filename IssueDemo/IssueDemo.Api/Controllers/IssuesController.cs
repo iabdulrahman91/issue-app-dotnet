@@ -73,6 +73,7 @@ public class IssuesController : ControllerBase
     [HttpDelete("{id:guid}")]
     public IActionResult DeleteIssue(Guid id)
     {
-        return Ok(id);
+        IssueResult issueResult = _issueService.Delete(id);
+        return Ok();
     }
 }
